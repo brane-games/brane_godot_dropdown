@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6cr18og28mlf"]
+
+[ext_resource type="Theme" uid="uid://djixmxq3id4w8" path="res://dropdown_theme.tres" id="1_a6e6b"]
+[ext_resource type="Script" path="res://dropdown_control/dropdown_item_button.gd" id="1_cuhjn"]
+[ext_resource type="Texture2D" uid="uid://cxqcxf51l1y72" path="res://dropdown_control/information.svg" id="1_sww0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qojin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qho05"]
+bg_color = Color(1, 1, 1, 0.329412)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8d8b8"]
+bg_color = Color(1, 1, 1, 0.396078)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egxmc"]
+bg_color = Color(1, 1, 1, 0.396078)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="DropdownItemButton" type="Button"]
+custom_minimum_size = Vector2(100, 26)
+offset_right = 180.0
+offset_bottom = 26.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_a6e6b")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qojin")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qho05")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8d8b8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_egxmc")
+script = ExtResource("1_cuhjn")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="ItemTextureRect" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(26, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_sww0q")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.14902, 0.168627, 0.192157, 1)
+theme_override_font_sizes/font_size = 14
+text = "LABELINO  MNOGO"
+vertical_alignment = 2
+clip_text = true
+text_overrun_behavior = 3

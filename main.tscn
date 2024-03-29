@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://w6e5asfay1wd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2ylcl"]
+[ext_resource type="PackedScene" uid="uid://dddrbmiu2lr5w" path="res://dropdown_control/dropdown_control.tscn" id="1_lcdpl"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ylcl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nations:"
+
+[node name="NationsDropdownControl" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_lcdpl")]
+unique_name_in_owner = true
+layout_mode = 2
+initially_selected_value = "France"
+
+[node name="NationLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "Your nation is France"
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Resolution:"
+
+[node name="ResolutionsDropdownControl" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_lcdpl")]
+unique_name_in_owner = true
+layout_mode = 2
+panel_height = 100
+
+[node name="ResolutionLabel" type="Label" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Icons:"
+
+[node name="IconDropdownControl" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("1_lcdpl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+panel_height = 90
+
+[node name="IconLabel" type="Label" parent="HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer/NationsDropdownControl" to="." method="_on_nations_dropdown_control_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer2/ResolutionsDropdownControl" to="." method="_on_resolutions_dropdown_control_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer3/IconDropdownControl" to="." method="_on_icon_dropdown_control_item_selected"]
