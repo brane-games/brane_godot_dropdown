@@ -23,3 +23,9 @@ Dropdown item is a class that requires three arguments in the constructor:
 - **value**: any Variant
 - **label**: the text displayed inside the dropdown
 - **texture**: the icon displayed next to the selected element
+
+## Search functionality
+
+When there's many items in the dropdown component the user can filter the options by typing:
+
+![search](./search.gif)
